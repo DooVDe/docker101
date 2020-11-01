@@ -1,0 +1,16 @@
+version: 3
+services:
+  docker101:
+    container_name: docker101
+    restart: always
+    build:
+      dockerfile: Dockerfile
+    environment:
+      - PORT=3000
+    depends_on:
+      - redis
+  redis:
+    image: redis
+    container_name: redis_db
+    port:
+      - "6379:6379"
