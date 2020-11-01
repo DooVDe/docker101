@@ -1,16 +1,24 @@
-version: 3
+version: "3.8"
 services:
   docker101:
     container_name: docker101
     restart: always
     build:
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: Dockerfile.dev
+    env_file:
+      - .env
     environment:
-      - PORT=3000
+      - REDIS_HOST=redis_db
+    ports:
+      - 8080:${HTTP_PORT}
+    volumes:
+      - ./app:/var/www/webapp/app:cached
+      - /var/www/node_modules
     depends_on:
       - redis
   redis:
     image: redis
     container_name: redis_db
-    port:
-      - "6379:6379"
+    ports:
+      - 6379:6379
