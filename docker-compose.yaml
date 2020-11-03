@@ -10,13 +10,13 @@ services:
       - .env
     ports:
       - 8080:${HTTP_PORT}
+      - 5858:5858
     volumes:
-      - ./app:/var/www/webapp/app:cached
-      - /var/www/node_modules
+      - ./dist:/var/www/webapp/dist:cached
+      - ./src:/var/www/webapp/src:cached
+      - ./templates:/var/www/webapp/templates:cached
     depends_on:
       - redis
   redis:
     image: redis
     container_name: redis_db
-    ports:
-      - 6379:6379

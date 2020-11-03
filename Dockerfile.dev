@@ -4,10 +4,8 @@ LABEL version="v0.1 - dev"
 
 WORKDIR /var/www/webapp/
 
-COPY package* ./
+COPY *.json ./
 
 RUN npm ci
-
-COPY app ./
 
 ENTRYPOINT ["npm", "run", "dev"]
