@@ -4,8 +4,10 @@
   "description": "Just testing",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "echo \"Error: not implemented\"",
-    "dev": "ts-node-dev --inspect=0.0.0.0:5858 --watch=templates/* ./src/bin/server.ts"
+    "start": "NODE_ENV=production node ./dist/bin/server.js",
+    "dev": "NODE_ENV=development ts-node-dev --inspect=0.0.0.0:5858 --watch=templates/* ./src/bin/server.ts",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && tsc --sourceMap false --declaration false"
   },
   "keywords": [],
   "author": "DooVDe",
