@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-  :
+  docker101:
     container_name: docker101
     restart: always
     build:
