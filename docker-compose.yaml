@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-  docker101:
+  :
     container_name: docker101
     restart: always
     build:
@@ -12,11 +12,5 @@ services:
       - 8080:${HTTP_PORT}
       - 5858:5858
     volumes:
-      - ./dist:/var/www/webapp/dist:cached
       - ./src:/var/www/webapp/src:cached
       - ./templates:/var/www/webapp/templates:cached
-    depends_on:
-      - redis
-  redis:
-    image: redis
-    container_name: redis_db
