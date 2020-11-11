@@ -1,5 +1,3 @@
 node_modules
-.env_dev
-Dokerfile
-Dokerfile_dev
+.env
 dist
