@@ -9,9 +9,10 @@ const app = express();
 // Logic
 app.get('/', async (req, res) => {
   const date = new Date();
+  const content = `Date: ${date.toString()}<br>Env: ${process.env.NODE_ENV}`;
   console.log(`Request@${date.toString()}`);
 
-  res.send(`<h1>hello world</h1><pre>${date.toString()}</pre>`);
+  res.send(`<h1>Hello world!</h1><pre>${content}</pre>`);
 });
 
 // Init
